@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
@@ -24,17 +25,18 @@ import okhttp3.Response;
 @Slf4j
 @Component
 public class HttpUtil {
+	
+	@Autowired ObjectUtil objectUtil;
 
-	public static final int HTTP_BAD_REQUEST = 400;
-	public static final int HTTP_SYS_FAIL = 500;
-	public static final String ENCODING_DEFAULT = "UTF-8";
+	public final static int HTTP_BAD_REQUEST = 400;
+	public final static int HTTP_SYS_FAIL = 500;
+	public final static String ENCODING_DEFAULT = "UTF-8";
 	public final static String CONTENTS_TYPE_XML = "application/xml; charset=UTF-8";
 	public final static String CONTENTS_TYPE_JSON = "application/json; charset=UTF-8";
 	public final static String CONTENTS_TYPE_FORM = "application/x-www-form-urlencoded; charset=UTF-8";
 	public final static String CONTENTS_TYPE_TEXT = "text/html; charset=utf-8";
 	public final static String CONTENTS_TYPE_MULTIPART = "multipart/form-data";
-		
-		public final static int HTTP_RETRY_COUNT = 3; 
+	public final static int HTTP_RETRY_COUNT = 3;
 	
 	public HttpResponse get(HttpParam param) {
 		
@@ -47,7 +49,7 @@ public class HttpUtil {
 					.readTimeout(param.getRead_timeout(), TimeUnit.MILLISECONDS)
 					.build();
 			
-			if(ObjectUtil.isEmpty(param.getUrl())) {
+			if(objectUtil.isEmpty(param.getUrl())) {
 				log.warn("URL is empty : {}", param.toString());
 				res.setStatus(HTTP_BAD_REQUEST);
 				return res;
@@ -102,7 +104,7 @@ public class HttpUtil {
 					.readTimeout(param.getRead_timeout(), TimeUnit.MILLISECONDS)
 					.build();
 			
-			if(ObjectUtil.isEmpty(param.getUrl())) {
+			if(objectUtil.isEmpty(param.getUrl())) {
 				log.warn("URL is empty : {}", param.toString());
 				res.setStatus(HTTP_BAD_REQUEST);
 				return res;
