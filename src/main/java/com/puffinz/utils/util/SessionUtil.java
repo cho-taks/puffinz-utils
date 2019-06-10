@@ -2,6 +2,9 @@ package com.puffinz.utils.util;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SessionUtil {
 	
 	public Object getAttribute(HttpServletRequest request, String key) {
