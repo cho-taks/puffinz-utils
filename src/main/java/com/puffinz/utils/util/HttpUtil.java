@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.stereotype.Component;
+
 import com.google.gson.Gson;
 import com.puffinz.utils.model.HttpResponse;
 import com.puffinz.utils.param.HttpParam;
@@ -20,6 +22,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 @Slf4j
+@Component
 public class HttpUtil {
 
 	public static final int HTTP_BAD_REQUEST = 400;

@@ -3,11 +3,14 @@ package com.puffinz.utils.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.puffinz.utils.model.Page;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Component
 public class PageUtil {
 	
 	public final static int DEFAULT_CURRENT_PAGE = 0;

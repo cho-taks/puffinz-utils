@@ -3,7 +3,9 @@ package com.puffinz.utils.util;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Months;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DateUtil {
 	
 	public int getBetweenDays(String sdate, String edate) {
