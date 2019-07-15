@@ -13,45 +13,45 @@ import com.google.gson.Gson;
 @Component
 public class ObjectUtil {
 	
-	public boolean isEmpty(String str) {
+	public static boolean isEmpty(String str) {
 		return str == null || str.trim().length() == 0;
 	}
 
-	public boolean isEmpty(int i) {
+	public static boolean isEmpty(int i) {
 		return i == 0;
 	}
 	
-	public boolean isEmpty(double i) {
+	public static boolean isEmpty(double i) {
 		return i == 0.0;
 	}
 
-	public boolean isEmpty(Object obj) {
+	public static boolean isEmpty(Object obj) {
 		return obj == null;
 	}
 
-	public boolean isNotEmpty(String str) {
+	public static boolean isNotEmpty(String str) {
 		return !isEmpty(str);
 	}
 
-	public boolean isNotEmpty(Object obj) {
+	public static boolean isNotEmpty(Object obj) {
 		return !isEmpty(obj);
 	}
 
-	public boolean isNotEmpty(int i) {
+	public static boolean isNotEmpty(int i) {
 		return !isEmpty(i);
 	}
 	
-	public boolean isNotEmpty(double i) {
+	public static boolean isNotEmpty(double i) {
 		return !isEmpty(i);
 	}
 
-	public Object ifEmpty(Object obj) {
+	public static Object ifEmpty(Object obj) {
 		if(obj == null) obj = 0;
 		return obj;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> beanToMap(Object obj) {
+	public static Map<String, Object> beanToMap(Object obj) {
 		Gson gson = new Gson();
 		String str = gson.toJson(obj);
 		Map<String, Object> map = gson.fromJson(str, HashMap.class);
@@ -59,11 +59,11 @@ public class ObjectUtil {
 	}
 
 	@SuppressWarnings("unchecked")
-	public String listToString(List list, char delim) {
+	public static String listToString(List list, char delim) {
 		return listToString(list, delim, null);
 	}
 	
-	public String listToString(List<String> list, char delim, String quot) {
+	public static String listToString(List<String> list, char delim, String quot) {
 		
 		if(isNotEmpty(quot)) {
 			List<String> strs = new ArrayList<String>();
@@ -76,11 +76,11 @@ public class ObjectUtil {
 		return ArrayToString(list.toArray(), delim);
 	}
 	
-	public String ArrayToString(Object[] objs, char delim) {
+	public static String ArrayToString(Object[] objs, char delim) {
 		return StringUtils.join(objs, delim);
 	}
 	
-	public boolean isDouble(String str) {
+	public static boolean isDouble(String str) {
 		
 		boolean result = true;
 		try {
