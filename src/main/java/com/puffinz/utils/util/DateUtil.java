@@ -5,13 +5,12 @@ import org.joda.time.Days;
 import org.joda.time.Months;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.springframework.stereotype.Component;
 
 @Component
 public class DateUtil {
 	
-	public final static String FORMAT_YYYYMMDD_HHMMSS_WITH_BAR = "yyyy-MM-dd hh:mm:ss";
-	public final static String FORMAT_YYYYMMDD_HHMMSS_NONE_BAR = "yyyyMMdd hh:mm:ss";
+	public final static String FORMAT_YYYYMMDD_WITH_BAR = "yyyy-MM-dd";
+	public final static String FORMAT_YYYYMMDD_NONE_BAR = "yyyyMMdd";
 	
 	public int getBetweenDays(String sdate, String edate) {
 		
@@ -66,7 +65,7 @@ public class DateUtil {
 	}
 	
 	public long getMillis(String date) {
-		DateTimeFormatter formatter = DateTimeFormat.forPattern(FORMAT_YYYYMMDD_HHMMSS_WITH_BAR);
+		DateTimeFormatter formatter = DateTimeFormat.forPattern(FORMAT_YYYYMMDD_WITH_BAR);
 		DateTime dt = formatter.parseDateTime(date);
 		return dt.getMillis();
 	}
